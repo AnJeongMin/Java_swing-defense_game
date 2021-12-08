@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/img"/>
+	<classpathentry kind="src" path="src/sound"/>
+	<classpathentry excluding="img/|sound/" including="Crash.java|ImgGen.java|Objects.java|Sound.java|gameController.java|gameView.java|genEnemy.java|rank.txt|rankFrame.java|settingFrame.java|systemFrame.java|titleFrame.java" kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-16">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
