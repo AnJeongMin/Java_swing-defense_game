@@ -200,6 +200,12 @@ public class gameController implements Runnable, KeyListener {
     		}	
     	}
     	/* Process enemy move and remove */
+    	
+   		xDelay--;
+		zDelay--;
+		cDelay--;
+		castle--;
+		gEnemy.enemyDelay--;
     }	
     
     @Override
@@ -211,11 +217,6 @@ public class gameController implements Runnable, KeyListener {
             	}
             	else {
             		keyProcess();
-            		xDelay--;
-            		zDelay--;
-            		cDelay--;
-            		castle--;
-            		gEnemy.enemyDelay--;		
             	}
             	if(gameOver == true) { // Game over -> system frame
             		gameView.stage = 0;

@@ -66,7 +66,6 @@ public class titleFrame extends JFrame {
 		startButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				// settingButton.setBounds(356, 442, 239, 95);
 				ImageIcon mouseOver = startImage;
 				mouseOver = imageSetSize(mouseOver, 450, 240);
 				startButton.setIcon(mouseOver);
@@ -83,7 +82,6 @@ public class titleFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Player player = new Player(-1);
 	            new gameView(player, title);
-	            //new systemFrame(player, game);
 	            sound.soundStop();
 	            new Sound(14);
 				setVisible(false);
@@ -125,7 +123,6 @@ public class titleFrame extends JFrame {
 		rankButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				// settingButton.setBounds(356, 442, 239, 95);
 				ImageIcon mouseOver = rankImage;
 				mouseOver = imageSetSize(mouseOver, 360, 200);
 				rankButton.setIcon(mouseOver);

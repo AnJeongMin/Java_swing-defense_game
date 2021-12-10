@@ -1,9 +1,7 @@
-import java.io.File;
 import java.net.URL;
 import javax.sound.sampled.*;
 
 public class Sound {
-	
 	
 	static float volume = -40;
 	Clip clip;
@@ -28,7 +26,6 @@ public class Sound {
 		
 		url = getClass().getClassLoader().getResource(fileName);
 		try {
-			
 			clip = AudioSystem.getClip();
 			AudioInputStream ais = AudioSystem.getAudioInputStream(url);
 			clip.open(ais);
@@ -40,15 +37,16 @@ public class Sound {
 			e.printStackTrace();
 		}
 	}
-
+	
+	// Control total sound volume in program
     public void soundControl(int volunmUpDown, settingFrame setting) {
     	float volume = Sound.volume;
-	   	if(volunmUpDown == 1 && volume <= -5) volume += 5; // 0
+	   	if(volunmUpDown == 1 && volume <= -5) volume += 5; // 0 
 	   	else if(volunmUpDown == 0 && volume >= -75) volume -= 5; // -80
 	   	String volumeString = "" + (int) (((volume + 80) / 80) * 100) + "%";  
 	   	FloatControl volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-	  	volumeControl.setValue(volume);
 	   	Sound.volume = volume;
+	   	volumeControl.setValue(volume);
 	   	setting.textField.setText(volumeString);
 	   	clip.start();
 	}

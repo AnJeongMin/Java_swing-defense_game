@@ -30,9 +30,7 @@ public class gameView extends JFrame{
  
     	this.player = player; 
     	this.controller = new gameController(player, this);
-    	/*
-    	 * in game panel - start
-    	 */
+    	
     	setVisible(true);
     	
     	setIconImage(tk.getImage(new ImgGen(13).imgUrl()));
@@ -42,8 +40,8 @@ public class gameView extends JFrame{
 		setBounds(300, 50, 1000, 700);
 		setResizable(false);
 
+		// When game started, information frame opened
 		new systemFrame(this.player, controller);
-		getContentPane().setLayout(null);
 		
 		backSound = new Sound(2);	
 	}
@@ -51,7 +49,8 @@ public class gameView extends JFrame{
     // Use "Double Buffering"
  	public void paint(Graphics g) {
      	bufferImg = createImage(getWidth(), getHeight());
-     	bufferG = bufferImg.getGraphics();
+     	bufferG = bufferImg.getGraphics(); // Image buffer
+     	/* Paint image into buffer image */
      	paintBackGround(g);
      	if(cloud != null) paintCloud(g);
      	paintInfo(g);
@@ -60,16 +59,18 @@ public class gameView extends JFrame{
  	    	paintPlayer(g);
  	    	paintWeapon(g);
      	}
-     	update(g);
+     	/* Paint image into image buffer */
+     	
+     	update(g); // Print buffer image into game view
      }
 
      public void update(Graphics g) {
-         g.drawImage(bufferImg,0,0,this); 
+         g.drawImage(bufferImg,0,0, null); 
          repaint();
      }
     
     public void paintPlayer(Graphics g) {
-    	bufferG.drawImage(player.image, player.xpos, player.ypos, this); 
+    	bufferG.drawImage(player.image, player.xpos, player.ypos, null); 
     }
     
     /* Game information  */
@@ -116,7 +117,8 @@ public class gameView extends JFrame{
     	atbString.addAttribute(TextAttribute.FOREGROUND, Color.RED);
     	if(player.castleHp > 0) bufferG.drawString(atbString.getIterator(), 20, 630); // castleHp
     	
-    	double originHp = 4000 + 1500 * settingFrame.levelIndex + stage * 1500;
+    	double originHp = 4000 + 3000 * settingFrame.levelIndex + stage * 2000;
+    	if(gameView.stage == 5) originHp += 2000;
     	for(int i = 0; i < enemies.size(); i++) {
     		Enemy boss = enemies.get(i);
     		if(boss.enemyIndex == -1) {
@@ -195,7 +197,7 @@ public class gameView extends JFrame{
     	if(cloud.xpos > -200) {
     		if(cloud.sustain == 0) {
     			cloud.move();
-    			cloud.sustain = 5 + stage;
+    			cloud.sustain = 5;
     		}
     		else cloud.sustain--;
     		bufferG.drawImage(cloud.image, cloud.xpos, cloud.ypos, this);
@@ -207,7 +209,3 @@ public class gameView extends JFrame{
 		bufferG.drawImage(img, 0, 0, this);
 	}
 }
-
-
-
-

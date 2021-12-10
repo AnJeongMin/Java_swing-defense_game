@@ -30,7 +30,7 @@ class Player extends Objects{
 	public Player(int weaponIndex) {
 		this.xpos = 250;
 		this.ypos = 400;
-		this.speed = 5 + (stageNum / 2);
+		this.speed = 4 + (stageNum / 2) + levelNum;
 		this.weaponIndex = weaponIndex;
 		if(weaponIndex == 1) image = tk.getImage(new ImgGen(28).imgUrl());
 		else if(weaponIndex == 2) image = tk.getImage(new ImgGen(30).imgUrl());
@@ -56,7 +56,7 @@ class Weapon extends Objects{
 			this.height = 50;
 			this.speed = 5;
 			this.range = 400;
-			this.damage = 160 + 10 * stageNum + 30 * levelNum ;
+			this.damage = 250 + 15 * stageNum + 20 * levelNum ;
 			this.xDelay = 12 - (stageNum / 2) - levelNum;
 			this.image = tk.getImage(new ImgGen(32).imgUrl());	
 		}
@@ -65,9 +65,9 @@ class Weapon extends Objects{
 			this.ypos = this.player.ypos + 50;
 			this.width = 60;
 			this.height = 20;
-			this.speed = 7;
+			this.speed = 5;
 			this.range = 800;
-			this.damage = 120 + 10 * stageNum + 30 * levelNum ;
+			this.damage = 200 + 15 * stageNum + 20 * levelNum ;
 			this.xDelay = 12 - (stageNum / 2) - levelNum;
 			this.image = tk.getImage(new ImgGen(34).imgUrl());	
 		}
@@ -78,9 +78,9 @@ class Weapon extends Objects{
 			this.ypos = this.player.ypos - 240;
 			this.width = 340;
 			this.height = 360;
-			this.speed = 5;
+			this.speed = 7;
 			this.range = 600;
-			this.damage = 500 + 200 * levelNum + stageNum * 200;
+			this.damage = 500 + 300 * levelNum + stageNum * 200;
 			this.image = tk.getImage(new ImgGen(33).imgUrl());
 		}
 		else if(weaponIndex == -2){
@@ -90,9 +90,9 @@ class Weapon extends Objects{
 			this.ypos = this.player.ypos + 40;
 			this.width = 90;
 			this.height = 30;
-			this.speed = 10;
+			this.speed = 7;
 			this.range = 800;
-			this.damage = 700 + 200 * levelNum + stageNum * 200;
+			this.damage = 800 + 300 * levelNum + stageNum * 200;
 			this.image = tk.getImage(new ImgGen(35).imgUrl());
 		}
 		else if(weaponIndex == 0){
@@ -102,7 +102,7 @@ class Weapon extends Objects{
 			this.ypos = 470;
 			this.width = 175;
 			this.height = 20;
-			this.speed = 5;
+			this.speed = 4;
 			this.range = 1200;
 			this.damage = 100 + 100 * levelNum + stageNum * 100;
 			this.image = tk.getImage(new ImgGen(36).imgUrl());
@@ -134,9 +134,9 @@ class Enemy extends Objects{
 		else this.ypos = 280;
 
 		if(enemyIndex == 1) {
-			this.hp = 300 + 300 * levelNum + stageNum * 100;
-			this.moveSpeed = 1 + levelNum;
-			this.width = 120;
+			this.hp = 400 + 300 * levelNum + stageNum * 100;
+			this.moveSpeed = 2 + levelNum;
+			this.width = 130;
 			this.height = 120;
 			double rand = Math.random();
 			if(rand > 0.67) this.image = tk.getImage(new ImgGen(15).imgUrl());
@@ -145,8 +145,8 @@ class Enemy extends Objects{
 		}
 		else if(enemyIndex == 2){
 			this.hp = 200 + 200 * levelNum + stageNum * 100;
-			this.moveSpeed = 2 + levelNum;
-			this.width = 120;
+			this.moveSpeed = 3 + levelNum;
+			this.width = 130;
 			this.height = 120;
 			double rand = Math.random();
 			if(rand > 0.67) this.image = tk.getImage(new ImgGen(18).imgUrl());
@@ -155,9 +155,9 @@ class Enemy extends Objects{
 		}
 		else if(enemyIndex == 3){
 			this.damage = 2;
-			this.hp = 500 + 500 * levelNum + stageNum * 200;
-			this.moveSpeed = levelNum;
-			this.width = 1500;
+			this.hp = 500 + 300 * levelNum + stageNum * 200;
+			this.moveSpeed = levelNum + 1;
+			this.width = 200;
 			this.height = 130;
 			double rand = Math.random();
 			if(rand > 0.5) this.image = tk.getImage(new ImgGen(21).imgUrl());
@@ -165,16 +165,18 @@ class Enemy extends Objects{
 		}
 		else if(enemyIndex == -1){
 			this.damage = 100;
-			this.hp = 4000 + 1500 * levelNum + stageNum * 2000;
-			this.moveSpeed = 1;
-			this.width = 80;
+			this.hp = 4000 + 3000 * levelNum + stageNum * 2000;
+			if(stageNum == 5) hp += 2000;
+			this.moveSpeed = 2;
+			this.width = 160;
 			this.height = 180;
+			if(stageNum == 4) this.width = 260;
 			this.image = tk.getImage(new ImgGen(stageNum + 22).imgUrl());
 		}
 		
-		if(enemyIndex == 3) score = 40 + levelNum * 20 + stageNum * 20;
-		else if(enemyIndex > 0) score = 30 + levelNum * 10 + stageNum * 10;
-		else score = 200 + levelNum * 50 + stageNum * 30;
+		if(enemyIndex == 3) score = 200 + levelNum * 150 + stageNum * 100;
+		else if(enemyIndex > 0) score = 100 + levelNum * 100 + stageNum * 100;
+		else score = 500 + levelNum * 200 + stageNum * 100;
 	}
 	public void move() {
 		this.xpos -= this.moveSpeed;

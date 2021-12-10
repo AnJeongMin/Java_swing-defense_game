@@ -9,10 +9,11 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.net.URL;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
-// in game system page
+// In game system page (Using JDialog for sub frame in game view frame)
 public class systemFrame extends JDialog{
 	
 	private JPanel infoPanel;
@@ -507,7 +508,7 @@ public class systemFrame extends JDialog{
 		backOverLabel.setBounds(0, 0, 586, 363);
 		gameOverPanel.add(backOverLabel);
 		/* Game Over frame */
-				
+
 		invisiblePanel();
 		changePanel();
 	}

@@ -3,9 +3,7 @@ import javax.sound.sampled.Clip;
 public class genEnemy {
 
 	gameView game;
-	Clip clip;
 	int enemyDelay = 0;
-	int enemyCount = 5;
 	
 	public genEnemy(gameView game) {
 		this.game = game;
@@ -30,7 +28,7 @@ public class genEnemy {
         	if(game.cloud != null) {
         		Enemy enemy = new Enemy(enemyIndex, yposIndex);   
         		game.enemies.add(enemy);
-        		enemyDelay = (int) (Math.random() * (100 - settingFrame.levelIndex * 20)) + 30; 
+        		enemyDelay = (int) (Math.random() * (50 - settingFrame.levelIndex * 10)) + 30; 
         	}
         	
         	else if(game.cloud  == null){

@@ -10,7 +10,7 @@ import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-// setting page
+// setting page (Using JDialog for sub frame in title frame)
 public class settingFrame extends JDialog{
 	
 	private JLabel volunmeControlLabel;
@@ -87,7 +87,7 @@ public class settingFrame extends JDialog{
     	   textField.setBounds(300, 90, 86, 48);
     	   getContentPane().add(textField);
     	   textField.setColumns(10);	
-    	   // Whenever open setting page, to maintain the previous volume value 
+    	   // Whenever open setting page, to maintain the previous volume value and print percentage
     	   sound.soundControl(0, setting);	
     	   sound.soundControl(1, setting);
     	   /* Sound control */
@@ -140,7 +140,6 @@ public class settingFrame extends JDialog{
 	   	   
            setSize(487,337);
            setModal(true);
-           
        }
        
        public void controlLevel(int input) {
