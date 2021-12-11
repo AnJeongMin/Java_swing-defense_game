@@ -30,7 +30,7 @@ public class Sound {
 			AudioInputStream ais = AudioSystem.getAudioInputStream(url);
 			clip.open(ais);
 			FloatControl volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-	        volumeControl.setValue(volume); // max : about 6, min : -80
+	        volumeControl.setValue(volume); // MASTER_GAIN -> max : about 6, min : -80
 	        clip.start();
 		} catch (Exception e) {
 			// TODO 자동 생성된 catch 블록

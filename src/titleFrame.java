@@ -66,8 +66,7 @@ public class titleFrame extends JFrame {
 		startButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				ImageIcon mouseOver = startImage;
-				mouseOver = imageSetSize(mouseOver, 450, 240);
+				ImageIcon mouseOver = imageSetSize(startImage, 450, 240);
 				startButton.setIcon(mouseOver);
 			}
 			@Override
@@ -80,8 +79,7 @@ public class titleFrame extends JFrame {
 		startButton.setBounds(433, 307, 280, 104);
 		startButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Player player = new Player(-1);
-	            new gameView(player, title);
+	            new gameView(title);
 	            sound.soundStop();
 	            new Sound(14);
 				setVisible(false);
@@ -95,8 +93,7 @@ public class titleFrame extends JFrame {
 		settingButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				ImageIcon mouseOver = settingImage;
-				mouseOver = imageSetSize(mouseOver, 360, 200);
+				ImageIcon mouseOver = imageSetSize(settingImage, 360, 200);
 				settingButton.setIcon(mouseOver);
 			}
 			@Override
@@ -123,8 +120,7 @@ public class titleFrame extends JFrame {
 		rankButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				ImageIcon mouseOver = rankImage;
-				mouseOver = imageSetSize(mouseOver, 360, 200);
+				ImageIcon mouseOver = imageSetSize(rankImage, 360, 200);
 				rankButton.setIcon(mouseOver);
 			}
 			@Override
@@ -160,10 +156,10 @@ public class titleFrame extends JFrame {
 	
 	// For mouse over event(menu button)
 	public ImageIcon imageSetSize(ImageIcon icon, int i, int j) {
-		Image xImage = icon.getImage();
-		Image yImage = xImage.getScaledInstance(i, j, java.awt.Image.SCALE_SMOOTH);
-		ImageIcon xyImage = new ImageIcon(yImage);
-		return xyImage;
+		Image xImg = icon.getImage();
+		Image yImg = xImg.getScaledInstance(i, j, java.awt.Image.SCALE_SMOOTH);
+		ImageIcon setImg = new ImageIcon(yImg);
+		return setImg;
 	}
 }
 

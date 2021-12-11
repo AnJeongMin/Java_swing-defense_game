@@ -26,9 +26,8 @@ public class gameView extends JFrame{
     boolean playing = false;
     static int stage = 1;
     
-    public gameView(Player player, titleFrame title){
- 
-    	this.player = player; 
+    public gameView(titleFrame title){
+    	this.player = new Player(-1);
     	this.controller = new gameController(player, this);
     	
     	setVisible(true);

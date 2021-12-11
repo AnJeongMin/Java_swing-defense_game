@@ -18,7 +18,6 @@ public class ImgGen {
 		else if(fileIndex == 9) fileName = "normal.png";
 		else if(fileIndex == 10) fileName = "hard.png";
 		else if(fileIndex == 11) fileName = "impossible.png";
-		
 		else if(fileIndex == 13) fileName = "castleImage.png";
 		else if(fileIndex == 14) fileName = "inGameO.png";
 		else if(fileIndex == 15) fileName = "enemy1-1.png";

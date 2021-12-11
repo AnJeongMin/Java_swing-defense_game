@@ -55,6 +55,7 @@ public class rankFrame extends JDialog{
 			BufferedReader br = new BufferedReader(new FileReader(file));
 			ArrayList<String> rank = new ArrayList<String>();  // Restore all data 
 			ArrayList<Integer> score = new ArrayList<Integer>(); // Restore integer data
+			ArrayList<String> scoreStr = new ArrayList<String>(); // Converted score integer to string 
 			String str;
 			while((str = br.readLine()) != null) {
 				rank.add(str);
@@ -75,7 +76,6 @@ public class rankFrame extends JDialog{
 			}
 			
 			Collections.sort(score);
-			ArrayList<String> scoreStr = new ArrayList<String>(); 
 			for(int i = 0; i < score.size(); i++) {
 				scoreStr.add(score.get(i) + "");
 			} // After sorting, covert integer to string
