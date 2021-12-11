@@ -58,12 +58,12 @@ public class rankFrame extends JDialog{
 			ArrayList<String> scoreStr = new ArrayList<String>(); // Converted score integer to string 
 			String str;
 			while((str = br.readLine()) != null) {
-				rank.add(str);
+				rank.add(str); // Read data for string
 			}
 			
 			for(int i = 0; i < rank.size() / 2; i++) {
 				score.add(Integer.parseInt(rank.get(2*i)));
-			}
+			} // Convert to integer for sorting
 			
 			if(rank.size() == 0) { // When game record not exist
 				JTextPane nullPane = new JTextPane();
